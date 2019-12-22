@@ -2,15 +2,7 @@
 
 ## Home Assistant sensor for WaterNSW Real Time Data
 
-[![GitHub Release][releases-shield]][releases]
-[![GitHub Activity][commits-shield]][commits]
-[![License][license-shield]](LICENSE.md)
-
-[![hacs][hacsbadge]][hacs]
-![Project Maintenance][maintenance-shield]
-[![BuyMeCoffee][buymecoffeebadge]][buymecoffee]
-
-** This component will set up a sensor platform to retrieve data from WaterNSW's Real Time Data platform **
+This component will set up a sensor platform to retrieve data from WaterNSW's Real Time Data platform
 
 ## Installation
 
@@ -25,6 +17,7 @@
 ## Getting Configuration from Real Time Data Platform
 
 WaterNSW's Real Time Data Platform can be a little bit tricky to use:
+
 1. Open https://realtimedata.waternsw.com.au/
 2. From the menu on the left hand side, select the Dam of interest
 3. Select the details Tab and note down the following for the Datasource "PROV"
@@ -43,6 +36,7 @@ WaterNSW's Real Time Data Platform can be a little bit tricky to use:
 | `unit_of_measure` | `string` | `True`   | Unit of Measurement (from Real Time Data platform) |
 
 ## Example Configuration
+
 ```yaml
 sensor:
   - platform: waternsw
@@ -54,9 +48,5 @@ sensor:
 ```
 
 ## Contributions
+
 Please feel free to contribute, be it with Issues or Pull Requests!
-
-***
-
-[buymecoffee]: https://www.buymeacoffee.com/bacco007
-[buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg?style=for-the-badge
