@@ -22,18 +22,19 @@ CONF_UOM = 'unit_of_measure'
 
 DEFAULT_UOM = 'Unknown'
 
-DEFAULT_SCAN_INTERVAL = timedelta(hours=1)
-SCAN_INTERVAL = timedelta(hours=1)
+# DEFAULT_SCAN_INTERVAL = timedelta(hours=1)
+# SCAN_INTERVAL = timedelta(hours=1)
 
 ICON = 'mdi:water'
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_NAME): cv.string,
     vol.Required(CONF_SITE): cv.string,
-    vol.Required(CONF_VARFROM); cv.string,
-    vol.Required(CONF_VARTO); cv.string,
-    vol.Required(CONF_UOM, default=DEFAULT_UOM); cv.string
+    vol.Required(CONF_VARFROM): cv.string,
+    vol.Required(CONF_VARTO): cv.string,
+    vol.Required(CONF_UOM, default=DEFAULT_UOM): cv.string
 })
+
 
 def setup_platform(hass, config, add_entities, discovery_info=None):
     "Setup Platform"
@@ -44,6 +45,7 @@ def setup_platform(hass, config, add_entities, discovery_info=None):
         varto=config[CONF_VARTO],
         uom=config[CONF_UOM]
     )])
+
 
 class WaterNSWSensor(Entity):
     def __init__(self, name: str, site: str, varfrom: str, varto: str, uom: str):
@@ -77,7 +79,8 @@ class WaterNSWSensor(Entity):
 
     def update(self):
 
-        url = "https://realtimedata.waternsw.com.au/cgi/webservice.pl?{'function':'get_latest_ts_values','version':'2','params':{'site_list':'" + self._site + "','datasource':'PROV','trace_list':[{'varfrom':'" + self._varfrom + ""','varto':'" + self._varto + "'}]}}&ver=2"
+        url = "https://realtimedata.waternsw.com.au/cgi/webservice.pl?{'function':'get_latest_ts_values','version':'2','params':{'site_list':'" + str(
+            self._site) + "','datasource':'PROV','trace_list':[{'varfrom':'" + str(self._varfrom) + "','varto':'" + str(self._varto) + "'}]}}&ver=2"
         results = json.load(urllib.request.urlopen(url))
 
         self._attributes = {}
