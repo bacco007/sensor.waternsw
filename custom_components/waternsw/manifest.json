@@ -1,7 +1,7 @@
 {
   "domain": "waternsw",
   "name": "Water NSW",
-  "documentation": "",
+  "documentation": "https://github.com/bacco007/sensor.waternsw",
   "dependencies": [],
   "codeowners": ["@bacco007"],
   "requirements": []

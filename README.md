@@ -4,6 +4,8 @@
 
 This component will set up a sensor platform to retrieve data from WaterNSW's Real Time Data platform
 
+[![HitCount](http://hits.dwyl.io/bacco007/sensorwaternsw.svg)](http://hits.dwyl.io/bacco007/sensorwaternsw)
+
 ## Installation
 
 1. Using the tool of choice open the directory (folder) for your HA configuration (where you find `configuration.yaml`).
