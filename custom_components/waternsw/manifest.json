@@ -4,5 +4,5 @@
   "documentation": "https://github.com/bacco007/sensor.waternsw",
   "dependencies": [],
   "codeowners": ["@bacco007"],
-  "requirements": []
+  "requirements": ["datetime", "json", "urllib"]
 }
