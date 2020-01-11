@@ -2,7 +2,7 @@
 import datetime
 import json
 import logging
-import urllib.request
+import requests
 from datetime import timedelta
 
 import homeassistant.helpers.config_validation as cv
@@ -29,7 +29,7 @@ MIN_TIME_BETWEEN_UPDATES = datetime.timedelta(minutes=10)
 
 PLATFORM_SCHEMA = PLATFORM_SCHEMA.extend({
     vol.Required(CONF_NAME): cv.string,
-    vol.Optional(CONF_ICON, default=DEFAULT_ICON): cv.string
+    vol.Optional(CONF_ICON, default=DEFAULT_ICON): cv.string,
     vol.Required(CONF_SITE): cv.string,
     vol.Required(CONF_VARFROM): cv.string,
     vol.Required(CONF_VARTO): cv.string,
@@ -85,20 +85,29 @@ class WaterNSWSensor(Entity):
 
         url = "https://realtimedata.waternsw.com.au/cgi/webservice.pl?{'function':'get_latest_ts_values','version':'2','params':{'site_list':'" + str(
             self._site) + "','datasource':'PROV','trace_list':[{'varfrom':'" + str(self._varfrom) + "','varto':'" + str(self._varto) + "'}]}}&ver=2"
-        results = json.load(urllib.request.urlopen(url))
+
+        try:
+            response = requests.get(url)
+            response.raise_for_status()
+        except HTTPError as http_err:
+            _LOGGER.warning("HTTP Error: %s", http_err)
+        except Exception as err:
+            _LOGGER.warning("Other Error: %s", err)
+
+        results = response.json()
 
         self._attributes = {}
         self._state = 0
 
         try:
             reqvalue = results['return'][self._site][0]['values'][0]['v']
-        else:
+        except:
             reqvalue = "unknown"
             _LOGGER.error('Cannot retrieve date, check config')
 
         try:
             time = results['return'][self._site][0]['values'][0]['time']
-        else:
+        except:
             time = "unknown"
 
         if time == "unknown":
