@@ -1,6 +1,6 @@
-<h1>sensor.waternsw</h1>
+# sensor.waternsw
 
-<h2>Home Assistant sensor for WaterNSW Real Time Data</h2>
+Home Assistant sensor for WaterNSW Real Time Data
 
 This component will set up a sensor platform to retrieve data from WaterNSW's Real Time Data platform
 
@@ -9,18 +9,22 @@ This component will set up a sensor platform to retrieve data from WaterNSW's Re
 ![Licence](https://img.shields.io/github/license/bacco007/sensor.waternsw)
 ![Downloads](https://img.shields.io/github/downloads/bacco007/sensor.waternsw/total)
 
+[![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
+
 ---
 
 ## Table of Contents
 
-- [Table of Contents](#table-of-contents)
-- [Installation](#installation)
-  - [Manual Installation](#manual-installation)
-  - [Installation via Home Assistant Community Store (HACS)](#installation-via-home-assistant-community-store-hacs)
-- [Getting Configuration from Real Time Data Platform](#getting-configuration-from-real-time-data-platform)
-- [Configuration Options](#configuration-options)
-- [Example Configuration](#example-configuration)
-- [Contributions](#contributions)
+- [sensor.waternsw](#sensorwaternsw)
+  - [Table of Contents](#table-of-contents)
+  - [Installation](#installation)
+    - [Manual Installation](#manual-installation)
+    - [Installation via Home Assistant Community Store (HACS)](#installation-via-home-assistant-community-store-hacs)
+  - [Getting Configuration from Real Time Data Platform](#getting-configuration-from-real-time-data-platform)
+  - [Configuration Options](#configuration-options)
+    - [Dams - Variables](#dams---variables)
+  - [Example Configuration](#example-configuration)
+  - [Contributions](#contributions)
 
 ---
 
@@ -49,7 +53,7 @@ This component will set up a sensor platform to retrieve data from WaterNSW's Re
 
 WaterNSW's Real Time Data Platform can be a little bit tricky to use:
 
-1. Open https://realtimedata.waternsw.com.au/
+1. Open [https://realtimedata.waternsw.com.au/](https://realtimedata.waternsw.com.au/)
 2. From the menu on the left hand side, select the Dam of interest
 3. Select the details Tab and note down the following for the Datasource "PROV"
    1. Site Number (Site ID below)
@@ -63,10 +67,26 @@ WaterNSW's Real Time Data Platform can be a little bit tricky to use:
 | Key               | Type     | Required | Description                                        |
 | ----------------- | -------- | -------- | -------------------------------------------------- |
 | `name`            | `string` | `True`   | Name of Sensor                                     |
+| `icon` | `string` | `False` | MDI Icon to be used (default: `mdi:water`) |
+| `scan_interval` | `number` | `False` | Number of Seconds between updates (default 10 minutes) |
 | `site_id`         | `string` | `True`   | Site Number (from Real Time Data platform)         |
 | `from_variable`   | `string` | `True`   | From Variable (from Real Time Data platform)       |
 | `to_variable`     | `string` | `True`   | To Variable (from Real Time Data platform)         |
 | `unit_of_measure` | `string` | `True`   | Unit of Measurement (from Real Time Data platform) |
+
+### Dams - Variables
+
+Most Dams on the platform use the same variables - reproduced below, however in some cases the variables may be slightly different due to changes at the dam (eg: capacity changes)
+
+| Data | UoM | From Variable | To Variable | Notes |
+| --- | --- | --- | --- | --- |
+| Rainfall | Millimetres | 10.00 | 10.00 |
+| Water Level | Metres | 130.00 | 130.00 |
+| Water Volume | Megalitres | 130.00 | 136.00 |
+| Water Volume | Percentage | 130.00 | 448.00 |
+| Inflow (24hr Total) | Megalitres | 422.00 | 422.00 |
+| Releases (24hr Total) | Megalitres | 459.00 | 459.00 |
+| Evaporation | Millimetres | 700.00 | 700.00 | Not all Dams record evaporation |
 
 ---
 
@@ -87,3 +107,6 @@ sensor:
 ## Contributions
 
 Please feel free to contribute, be it with Issues or Pull Requests!
+
+[buymeacoffee-shield]: https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-2.svg
+[buymeacoffee]: https://www.buymeacoffee.com/bacco007
