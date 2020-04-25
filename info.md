@@ -4,10 +4,13 @@ Home Assistant sensor for WaterNSW Real Time Data
 
 This component will set up a sensor platform to retrieve data from WaterNSW's Real Time Data platform
 
+[![maintained](https://img.shields.io/maintenance/yes/2020.svg)](#)
 [![HitCount](http://hits.dwyl.io/bacco007/sensorwaternsw.svg)](http://hits.dwyl.io/bacco007/sensorwaternsw)
 ![LastCommit](https://img.shields.io/github/last-commit/bacco007/sensor.waternsw)
 ![Licence](https://img.shields.io/github/license/bacco007/sensor.waternsw)
 ![Downloads](https://img.shields.io/github/downloads/bacco007/sensor.waternsw/total)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
+![Validate with hassfest](https://github.com/bacco007/sensor.waternsw/workflows/Validate%20with%20hassfest/badge.svg)
 
 [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
 
@@ -64,29 +67,29 @@ WaterNSW's Real Time Data Platform can be a little bit tricky to use:
 
 ## Configuration Options
 
-| Key               | Type     | Required | Description                                        |
-| ----------------- | -------- | -------- | -------------------------------------------------- |
-| `name`            | `string` | `True`   | Name of Sensor                                     |
-| `icon` | `string` | `False` | MDI Icon to be used (default: `mdi:water`) |
-| `scan_interval` | `number` | `False` | Number of Seconds between updates (default 10 minutes) |
-| `site_id`         | `string` | `True`   | Site Number (from Real Time Data platform)         |
-| `from_variable`   | `string` | `True`   | From Variable (from Real Time Data platform)       |
-| `to_variable`     | `string` | `True`   | To Variable (from Real Time Data platform)         |
-| `unit_of_measure` | `string` | `True`   | Unit of Measurement (from Real Time Data platform) |
+| Key               | Type     | Required | Description                                            |
+| ----------------- | -------- | -------- | ------------------------------------------------------ |
+| `name`            | `string` | `True`   | Name of Sensor                                         |
+| `icon`            | `string` | `False`  | MDI Icon to be used (default: `mdi:water`)             |
+| `scan_interval`   | `number` | `False`  | Number of Seconds between updates (default 10 minutes) |
+| `site_id`         | `string` | `True`   | Site Number (from Real Time Data platform)             |
+| `from_variable`   | `string` | `True`   | From Variable (from Real Time Data platform)           |
+| `to_variable`     | `string` | `True`   | To Variable (from Real Time Data platform)             |
+| `unit_of_measure` | `string` | `True`   | Unit of Measurement (from Real Time Data platform)     |
 
 ### Dams - Variables
 
 Most Dams on the platform use the same variables - reproduced below, however in some cases the variables may be slightly different due to changes at the dam (eg: capacity changes)
 
-| Data | UoM | From Variable | To Variable | Notes |
-| --- | --- | --- | --- | --- |
-| Rainfall | Millimetres | 10.00 | 10.00 |
-| Water Level | Metres | 130.00 | 130.00 |
-| Water Volume | Megalitres | 130.00 | 136.00 |
-| Water Volume | Percentage | 130.00 | 448.00 |
-| Inflow (24hr Total) | Megalitres | 422.00 | 422.00 |
-| Releases (24hr Total) | Megalitres | 459.00 | 459.00 |
-| Evaporation | Millimetres | 700.00 | 700.00 | Not all Dams record evaporation |
+| Data                  | UoM         | From Variable | To Variable | Notes                           |
+| --------------------- | ----------- | ------------- | ----------- | ------------------------------- |
+| Rainfall              | Millimetres | 10.00         | 10.00       |
+| Water Level           | Metres      | 130.00        | 130.00      |
+| Water Volume          | Megalitres  | 130.00        | 136.00      |
+| Water Volume          | Percentage  | 130.00        | 448.00      |
+| Inflow (24hr Total)   | Megalitres  | 422.00        | 422.00      |
+| Releases (24hr Total) | Megalitres  | 459.00        | 459.00      |
+| Evaporation           | Millimetres | 700.00        | 700.00      | Not all Dams record evaporation |
 
 ---
 
