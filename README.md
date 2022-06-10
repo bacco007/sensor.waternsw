@@ -4,12 +4,12 @@ Home Assistant sensor for WaterNSW Real Time Data
 
 This component will set up a sensor platform to retrieve data from WaterNSW's Real Time Data platform
 
-[![maintained](https://img.shields.io/maintenance/yes/2020.svg)](#)
+[![maintained](https://img.shields.io/maintenance/yes/2022.svg)](#)
 [![HitCount](http://hits.dwyl.io/bacco007/sensorwaternsw.svg)](http://hits.dwyl.io/bacco007/sensorwaternsw)
 ![LastCommit](https://img.shields.io/github/last-commit/bacco007/sensor.waternsw)
 ![Licence](https://img.shields.io/github/license/bacco007/sensor.waternsw)
 ![Downloads](https://img.shields.io/github/downloads/bacco007/sensor.waternsw/total)
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/custom-components/hacs)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://github.com/hacs/integration)
 ![Validate with hassfest](https://github.com/bacco007/sensor.waternsw/workflows/Validate%20with%20hassfest/badge.svg)
 
 [![Buy me a coffee][buymeacoffee-shield]][buymeacoffee]
